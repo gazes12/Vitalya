@@ -1,0 +1,9 @@
+$(document).click(function(e){
+	if($(e.target).hasClass('item-reviews__settings')){
+		$(e.target).parents('.item-reviews__header').find('.item-reviews__buttons').addClass('visible');
+	}else{
+		$('.item-reviews__buttons').each(function(){
+			$(this).removeClass('visible');
+		});
+	}
+});
