@@ -245,7 +245,8 @@ $(document).ready(function() {
 		item.find('.menu__icon').removeClass('up');
 	});
 
-
+let toggleOn = $('.toggleTheme__on');
+let toggleOff = $('.toggleTheme__off');
 
 if(localStorage.getItem('theme') == undefined){
     setTheme('dark');
@@ -256,9 +257,6 @@ if(localStorage.getItem('theme') == undefined){
 		setTheme('light');
     }
 }
-
-let toggleOn = $('.toggleTheme__on');
-let toggleOff = $('.toggleTheme__off');
 
 toggleOff.click(() => {{
 	setTheme('light');
