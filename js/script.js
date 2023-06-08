@@ -248,14 +248,12 @@ $(document).ready(function() {
 
 
 if(localStorage.getItem('theme') == undefined){
-    localStorage.setItem('theme', 'dark');
+    setTheme('dark');
 }else{
     if(localStorage.getItem('theme') == 'dark'){
-        $('body').addClass('dark');
-        $('body').removeClass('light')
+		setTheme('dark');
     }else if(localStorage.getItem('theme') == 'light'){
-        $('body').addClass('light');
-        $('body').removeClass('dark');
+		setTheme('light');
     }
 }
 
@@ -263,24 +261,28 @@ let toggleOn = $('.toggleTheme__on');
 let toggleOff = $('.toggleTheme__off');
 
 toggleOff.click(() => {{
-    localStorage.setItem('theme', 'light');
-
-    $('body').addClass('light');
-    $('body').removeClass('dark');
-
-    toggleOff.addClass('hidden');
-    toggleOn.removeClass('hidden');
+	setTheme('light');
 }});
 
 toggleOn.click(() => {{
-    localStorage.setItem('theme', 'dark');
-
-    $('body').addClass('dark');
-    $('body').removeClass('light');
-
-    toggleOn.addClass('hidden');
-    toggleOff.removeClass('hidden');
+	setTheme('dark');
 }});
 
+function setTheme(theme){
+	localStorage.setItem('theme', theme);
 
+	if(theme == 'dark'){
+		$('body').addClass('dark');
+		$('body').removeClass('light');
+	
+		toggleOn.addClass('hidden');
+		toggleOff.removeClass('hidden');
+	}else if(theme == 'light'){
+		$('body').addClass('light');
+		$('body').removeClass('dark');
+	
+		toggleOff.addClass('hidden');
+		toggleOn.removeClass('hidden');
+	}
+}
 });
